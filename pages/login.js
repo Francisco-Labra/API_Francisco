@@ -12,7 +12,7 @@ function LoginPage() {
         <div>
             <div>
                 <button onClick={() => signIn('github')}>
-                    Iniciar Sesion con GitHub
+                    Iniciar Sesion en GitHub
                 </button>
             </div>
         </div>
