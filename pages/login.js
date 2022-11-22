@@ -1,15 +1,19 @@
 import React from "react";
+import {signIn, useSession} from 'next-auth/react'
 import {useRouter} from 'next/router'
 
 function LoginPage() {
-
+    const {data: session, status} = useSession()
     const router = useRouter()
+    if (status !== 'loading' && status === 'authenticated') {
+        router.push('/')
+    }
     return (
         <div>
             <div>
-                <button onClick={() => router.push('/api/auth/signin/github')}>
-                    Iniciar Sesion
-                    </button>
+                <button onClick={() => signIn('github')}>
+                    Iniciar Sesion con GitHub
+                </button>
             </div>
         </div>
     )

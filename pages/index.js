@@ -1,5 +1,5 @@
 import React from "react";
-import {useSession} from 'next-auth/react'
+import {useSession, signOut} from 'next-auth/react'
 import {useRouter} from 'next/router'
  
 function Homepage() {
@@ -11,6 +11,7 @@ function Homepage() {
     return <p>Loading ...</p>
   }
 
+  
   if (status === 'unauthenticated') {
     router.push('/login')
   }
@@ -23,11 +24,15 @@ function Homepage() {
           <h1>{session.user.name}</h1>
           <p>{session.user.email}</p>
           <img src={session.user.image} alt=''/>
+          <p>Le hubiera metido mas Css pero de por si ya a duras penas me quedo ja</p>
           </div>
         ) : (
           <p>Skeleton</p>
         )
       }
+      <button onClick={()=> signOut()}>       
+        Cerrar Sesion
+      </button>
     </div>
   )
 }
