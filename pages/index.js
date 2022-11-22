@@ -24,7 +24,6 @@ function Homepage() {
           <h1>{session.user.name}</h1>
           <p>{session.user.email}</p>
           <img src={session.user.image} alt=''/>
-          <p>Le hubiera metido mas Css pero de por si ya a duras penas me quedo ja</p>
           </div>
         ) : (
           <p>Skeleton</p>
